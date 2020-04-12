@@ -37,9 +37,9 @@ public class FileStorage implements Storage {
     @Override
     public void removeUser(String id) {
         User tmp = null;
-        for (User u : container) {
-            if (u.getId().equals(id)) ;
-            tmp = u;
+        for (User user : container) {
+            if (user.getId().equals(id)) ;
+            tmp = user;
         }
         removeUser(tmp);
     }
@@ -52,9 +52,9 @@ public class FileStorage implements Storage {
     @Override
     public void removeUserByName(String name) {
         User tmp = null;
-        for (User u : container) {
-            if (u.getName().equals(name)) ;
-            tmp = u;
+        for (User user : container) {
+            if (user.getName().equals(name)) ;
+            tmp = user;
         }
         removeUser(tmp);
     }
@@ -69,9 +69,9 @@ public class FileStorage implements Storage {
 
     @Override
     public void updateUser(User user) {
-        for (User u : container) {
-            if (u.equals(user)) {
-                u = user;
+        for (User tmp : container) {
+            if (tmp.equals(user)) {
+                tmp = user;
             }
             serialize();
         }
@@ -79,17 +79,17 @@ public class FileStorage implements Storage {
 
     @Override
     public User getUser(String id) {
-        for (User u : container) {
-            if (u.getId().equals(id)) ;
-            return u;
+        for (User user : container) {
+            if (user.getId().equals(id)) ;
+            return user;
         }
         return null;
     }
 
     public String getId(String name) {
-        for (User u : container) {
-            if (u.getName().equals(name)) ;
-            return u.getId();
+        for (User user : container) {
+            if (user.getName().equals(name)) ;
+            return user.getId();
         }
         return null;
     }
